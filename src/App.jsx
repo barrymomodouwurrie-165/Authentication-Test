@@ -6,8 +6,10 @@ import { Routes, Route } from "react-router";
 import "./App.css"
 import "./pages/SignupPage.css"
 import "./pages/LoginPage.css"
+// import { useState } from "react";
 
 function App() {
+  // const [user, setUser] = useState({})
   return (
     <>
       <Routes>
