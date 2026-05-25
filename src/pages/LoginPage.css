@@ -1,0 +1,46 @@
+.sign-in-header-title{
+    margin-top: 20px;
+    text-align: center;
+    margin-right: 20px;
+}
+.sign-in-form-container{
+   width: 420px;
+   /* border: 1px red solid; */
+   height: 350px;
+   margin: 40px auto;
+   border: solid 1px gray;
+   padding-top: 20px;
+   border-radius: 8px;
+   box-shadow: .8px .5px .8px gray;
+
+}
+.sign-in-para-name,.sign-in-para-email,.sign-in-para-password{
+    margin: 0;
+    margin-bottom: 5px;
+    width: 350px ;
+    margin-left: 30px;
+}
+ .sign-in-form-container input{
+    margin-bottom: 20px;
+    height: 25px;
+    width: 320px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 30px;
+}
+.sign-in-hide-button{
+    margin-bottom: 20px;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 8px;
+}
+.sign-in-create-button{
+    padding: 8px 140px;
+    border: none;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    margin-left: 30px;
+}

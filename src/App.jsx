@@ -3,6 +3,9 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import ContentsPage from "./pages/ContentsPage";
 import { Routes, Route } from "react-router";
+import "./App.css"
+import "./pages/SignupPage.css"
+import "./pages/LoginPage.css"
 
 function App() {
   return (
