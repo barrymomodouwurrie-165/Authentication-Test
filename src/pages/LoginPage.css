@@ -34,6 +34,7 @@
     border: none;
     border-radius: 5px;
     margin-left: 8px;
+    cursor: pointer;
 }
 .sign-in-create-button{
     padding: 8px 140px;
@@ -43,4 +44,5 @@
     color: white;
     font-weight: bold;
     margin-left: 30px;
+    cursor: pointer;
 }
