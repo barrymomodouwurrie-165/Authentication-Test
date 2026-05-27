@@ -60,7 +60,7 @@ router.post("/login", async (req, res) => {
         })
         .json({ accessToken, user });
     } else {
-      return res.json({ message: "Invalid credentials" });
+      return res.status(400).json({ message: "Invalid credentials" });
     }
   } catch (error) {
     return res.status(500).json({ message: "Internal error", error });
