@@ -1,12 +1,12 @@
 import { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router";
-const LoginPage = (user, setUser) => {
-  const [signEmail, setSignEmail] = useState("");
-  const [signPassword, setSignPassword] = useState("");
+import { useAuth } from "../context/AuthContext";
+
+
+
+const LoginPage = () => {
+  const { signEmail, signPassword, setSignEmail, setSignPassword, handleLogin } = useAuth()
   const [alter, setAlter] = useState("Show");
   const [isShowing, setIsShowing] = useState(false);
-  const Navigate = useNavigate();
 
   const handlePassword = () => {
     if (alter === "Show") {
@@ -19,22 +19,6 @@ const LoginPage = (user, setUser) => {
     }
   };
 
-  const handleLogin = async () => {
-    if (signEmail !== "" && signPassword !== "") {
-      const response = await axios.post(
-        "http://localhost:5000/api/users/login",
-        {
-          email: signEmail,
-          password: signPassword,
-        },
-      );
-      setSignEmail("");
-      setSignPassword("");
-      Navigate("/contents");
-      console.log(response.data);
-      
-    }
-  };
   return (
     <>
       <h1 className="sign-in-header-title">Log In here</h1>

@@ -1,11 +1,9 @@
 // import React from 'react'
+import { useAuth } from "../context/AuthContext";
 
 const ContentsPage = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const { user } = useAuth();
+  return <div>Hello {user.user?.name}</div>;
+};
 
-export default ContentsPage
+export default ContentsPage;
