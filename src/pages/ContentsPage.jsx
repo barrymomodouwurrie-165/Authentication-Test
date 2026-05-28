@@ -1,6 +1,7 @@
 // import React from 'react'
 import { useAuth } from "../context/AuthContext";
 import { Navigate } from "react-router";
+import "./Navbar.css";
 
 const ContentsPage = () => {
   const { user } = useAuth();
@@ -8,7 +9,26 @@ const ContentsPage = () => {
   if (!user?.accessToken) {
     <Navigate to="/login" replace />;
   }
-  return <div>Hello {user.user?.name}</div>;
+  return (
+    <>
+      <div className="nav-container">
+        <div className="user-info">Hello, {user.user.name}</div>
+        <button className="logout-button">Logout</button>
+      </div>
+      <h3>Kindly tell us about yourself</h3>
+      <div>
+        <form action="" className="content-form">
+          <textarea
+            name=""
+            id=""
+            className="text-area"
+            placeholder={`Tell us about ${user.user.name}`}
+          ></textarea>
+          <button className="send-btn">Send</button>
+        </form>
+      </div>
+    </>
+  );
 };
 
 export default ContentsPage;
