@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
@@ -6,10 +6,17 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const Navigate = useNavigate();
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("userData")) || null,
+  );
+  const navigate = useNavigate();
   const [signEmail, setSignEmail] = useState("");
   const [signPassword, setSignPassword] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("userData", JSON.stringify(user));
+  }, [user]);
+
   const handleLogin = async () => {
     if (signEmail !== "" && signPassword !== "") {
       try {
@@ -24,9 +31,9 @@ export const AuthProvider = ({ children }) => {
         setSignPassword("");
         if (response.status === 200) {
           setUser(response.data);
-          Navigate("/contents");
+          navigate("/contents");
+          console.log(response.data);
         }
-        console.log(user);
         if (response.status === 400) {
           let message = response?.data?.message || response?.data?.err;
           alert(message);
@@ -37,6 +44,16 @@ export const AuthProvider = ({ children }) => {
       }
     }
   };
+  useEffect(() => {
+    const checkRefresh = async () => {
+      const result = await axios.post(
+        "http://localhost:5000/api/users/refresh_token",
+      );
+      setUser((prev) => ({ ...prev, accessToken: result.data.accessToken }));
+      console.log(result.data)
+    };
+    checkRefresh();
+  }, []);
   return (
     <AuthContext.Provider
       value={{

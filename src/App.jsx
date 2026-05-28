@@ -8,19 +8,17 @@ import "./App.css";
 import "./pages/SignupPage.css";
 import "./pages/LoginPage.css";
 
-
 function App() {
-  
   return (
     <>
-      <AuthProvider>
-        <Routes>
+        <AuthProvider>
+      <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/contents" element={<ContentsPage />} />
-        </Routes>
-      </AuthProvider>
+      </Routes>
+        </AuthProvider>
     </>
   );
 }
