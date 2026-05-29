@@ -3,7 +3,8 @@ import router from "./routers/userRouter.js";
 import dotenv from "dotenv";
 import { DB_connect } from "./config/db.js";
 import cookieParser from "cookie-parser";
-import cors from "cors"
+import cors from "cors";
+import commentRouter from "./routers/commentRouter.js";
 
 const app = express();
 app.use(
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api/users", router);
+app.use("/api/users", commentRouter);
 
 const PORT = process.env.PORT || 5000;
 
