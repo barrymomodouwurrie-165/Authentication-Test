@@ -1,7 +1,9 @@
 // import React from 'react'
 import { useAuth } from "../context/AuthContext";
 import { Navigate } from "react-router";
+import Comments from "./Comments";
 import "./Navbar.css";
+import "./Comments.css";
 
 const ContentsPage = () => {
   const { user } = useAuth();
@@ -26,6 +28,7 @@ const ContentsPage = () => {
           ></textarea>
           <button className="send-btn">Send</button>
         </form>
+        <Comments/>
       </div>
     </>
   );
