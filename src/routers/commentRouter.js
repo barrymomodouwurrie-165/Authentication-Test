@@ -1,14 +1,12 @@
 import express from "express";
-import dayjs from "dayjs";
 import Comment from "../models/commentsModel.js";
 
 const commentRouter = express.Router();
 
 commentRouter.post("/comments", async (req, res) => {
   try {
-    const { timeInMs, name, comment } = req.body;
-    const time = dayjs().valueOf();
-    const newComment = new Comment({ timeInMs: time, name, comment });
+    const { date, name, comment, time } = req.body;
+    const newComment = new Comment({ date, name, comment, time });
     const comments = await newComment.save();
     res.status(201).json({ message: "Created successfully" });
   } catch (err) {
@@ -18,7 +16,7 @@ commentRouter.post("/comments", async (req, res) => {
 
 commentRouter.get("/comments", async (req, res) => {
   try {
-    const allComments = await Comment.find();
+      const allComments = await Comment.find().sort({ createdAt: -1 });
     if (!allComments) {
       return res.status(400);
     }

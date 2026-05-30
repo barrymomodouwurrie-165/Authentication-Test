@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const commentSchema = new mongoose.Schema(
   {
-    timeInMs: {
+    date: {
       type: String,
       required: true,
     },
@@ -11,6 +11,10 @@ const commentSchema = new mongoose.Schema(
       required: true,
     },
     comment: {
+      type: String,
+      required: true,
+    },
+    time: {
       type: String,
       required: true,
     },
