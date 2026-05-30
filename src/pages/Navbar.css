@@ -45,4 +45,5 @@ ul {
     color: white;
     border: none;
     border-radius: 8px;
+    cursor: pointer;
 }
